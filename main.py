@@ -32,7 +32,7 @@ def check_moving_averages(df_filtrado, estrategia_nome):
     ultimos_40 = df_filtrado.tail(40) if len(df_filtrado) >= 40 else df_filtrado
     media_8 = ultimos_8['Acerto'].sum() / 8 if len(ultimos_8) == 8 else ultimos_8['Acerto'].mean()
     media_40 = ultimos_40['Acerto'].sum() / 40 if len(ultimos_40) == 40 else ultimos_40['Acerto'].mean()
-    acima_das_medias = media_8 > 0.5 and media_40 > 0.5
+    acima_das_medias = media_8 >= 0.5 and media_40 > 0.5
     
     return {
         "Estratégia": estrategia_nome,
